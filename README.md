@@ -83,4 +83,6 @@ This Project demonstrates deployment of Blog website in VPC from scratch and hos
 
 ![image](https://github.com/user-attachments/assets/aa7b8314-e6cf-4092-80ca-78d6309f6450)
 
-    
+
+## Conclusion:
+This project Leverages Highly Secure, Scalable, Resilient and Cost Optimized architecture by using various AWS Services. This Design handles unpredictable traffic across multiple subnets and more importantly static websites are getting cached at the AWS edge locations for the faster access and less latency for the end users. By leveraging AWS's rich ecosystem, we were able to deploy a fully functional blog application that can serve static content from S3, dynamic content from EC2, and data from an RDS database, all while ensuring good performance, security, and fault tolerance. This architecture can serve as a strong foundation for more complex applications and is adaptable to future growth and feature expansion.
