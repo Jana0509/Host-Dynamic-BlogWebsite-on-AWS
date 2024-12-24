@@ -69,6 +69,8 @@ This Project demonstrates deployment of Blog website in VPC from scratch and hos
 
    ![image](https://github.com/user-attachments/assets/814c9477-c676-4a3a-bc3b-64a70e4b0803)
 
+   Under Bucket Policy, add the following policy to allow public access
+
 9. Create CloudFront Distribution for the S3 Website for the Caching the static web files.
 
     ![image](https://github.com/user-attachments/assets/e3998f08-4d36-4034-8b94-6a4e423d3982)
