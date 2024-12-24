@@ -1,0 +1,44 @@
+# create to root user
+sudo su
+
+# update the software packages on the ec2 instance 
+sudo yum update -y
+
+# create an html directory 
+sudo mkdir -p /var/www/html
+
+# install the apache web server, enable it to start on boot, and then start the server immediately
+sudo yum install -y httpd
+sudo systemctl enable httpd 
+sudo systemctl start httpd
+
+
+# install the mysql version 8 community repository
+sudo wget https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm 
+
+
+# install the mysql server
+sudo dnf install -y mysql80-community-release-el9-1.noarch.rpm 
+sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
+sudo dnf repolist enabled | grep "mysql.*-community.*"
+sudo dnf install -y mysql-community-server 
+
+
+# start and enable the mysql server
+sudo systemctl start mysqld
+sudo systemctl enable mysqld
+
+# set permissions
+sudo usermod -a -G apache ec2-user
+sudo chown -R ec2-user:apache /var/www
+sudo chmod 2775 /var/www && find /var/www -type d -exec sudo chmod 2775 {} \;
+sudo find /var/www -type f -exec sudo chmod 0664 {} \;
+chown apache:apache -R /var/www/html 
+
+# create the index.php file
+cd /var/www/html
+touch index.php
+vi index.php
+
+# restart the webserver
+sudo service httpd restart
